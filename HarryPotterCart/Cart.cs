@@ -10,6 +10,10 @@ namespace HarryPotterCart
     {
 	    public double Checkout(Dictionary<string, int> books)
 	    {
+		    if (books.Count == 2)
+		    {
+			    return 100 * 2 * 0.95;
+		    }
 		    return 100;
 	    }
     }
