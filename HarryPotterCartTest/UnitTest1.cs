@@ -16,5 +16,14 @@ namespace HarryPotterCartTest
 			var money = cart.Checkout(books);
 			Assert.AreEqual(100, money);
 		}
+
+		[TestMethod]
+		public void BuyEP12_190()
+		{
+			var cart = new Cart();
+			var books = new Dictionary<string, int>() {{"EP1", 1}, {"EP2", 1}};
+			var money = cart.Checkout(books);
+			Assert.AreEqual(190, money);
+		}
 	}
 }
