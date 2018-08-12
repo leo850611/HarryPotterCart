@@ -10,11 +10,13 @@ namespace HarryPotterCart
     {
 	    public double Checkout(Dictionary<string, int> books)
 	    {
+		    var money = 100 * books.Count;
 		    if (books.Count == 2)
 		    {
-			    return 100 * 2 * 0.95;
+			    return money * 0.95;
 		    }
-		    return 100;
+
+		    return money;
 	    }
     }
 }
