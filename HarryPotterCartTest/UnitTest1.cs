@@ -13,9 +13,8 @@ namespace HarryPotterCartTest
 		{
 			var cart = new Cart();
 			var books = new Dictionary<string, int>() {{"EP1", 1}};
-			cart.BuyEpisode(books);
-			var money = cart.Checkout();
-			Assert.Equals(100, money);
+			var money = cart.Checkout(books);
+			Assert.AreEqual(100, money);
 		}
 	}
 }

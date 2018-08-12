@@ -8,14 +8,9 @@ namespace HarryPotterCart
 {
     public class Cart
     {
-	    public void BuyEpisode(Dictionary<string, int> books)
+	    public double Checkout(Dictionary<string, int> books)
 	    {
-		    throw new NotImplementedException();
-	    }
-
-	    public double Checkout()
-	    {
-		    throw new NotImplementedException();
+		    return 100;
 	    }
     }
 }
