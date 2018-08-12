@@ -14,6 +14,9 @@ namespace HarryPotterCart
 		    if (books.Count == 2)
 		    {
 			    return money * 0.95;
+		    }else if (books.Count == 3)
+		    {
+			    return money * 0.9;
 		    }
 
 		    return money;
