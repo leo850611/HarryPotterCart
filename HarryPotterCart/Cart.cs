@@ -6,20 +6,14 @@ using System.Threading.Tasks;
 
 namespace HarryPotterCart
 {
-    public class Cart
-    {
-	    public double Checkout(Dictionary<string, int> books)
-	    {
-		    var money = 100 * books.Count;
-		    if (books.Count == 2)
-		    {
-			    return money * 0.95;
-		    }else if (books.Count == 3)
-		    {
-			    return money * 0.9;
-		    }
+	public class Cart
+	{
+		private Dictionary<int, double> _discountLookUp = new Dictionary<int, double>() { { 1, 1 }, { 2, 0.95 }, { 3, 0.9 } };
 
-		    return money;
-	    }
-    }
+		public double Checkout(Dictionary<string, int> books)
+		{
+			var money = 100 * books.Count;
+			return money * _discountLookUp[books.Count];
+		}
+	}
 }
