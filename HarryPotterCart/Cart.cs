@@ -8,15 +8,15 @@ namespace HarryPotterCart
 {
 	public class Cart
 	{
+		private const int UnitPrice = 100;
+
 		public double Checkout(Dictionary<string, int> books)
 		{
 			var total = 0d;
-			var maxBook = books.Max(p => p.Value);
-			for (int i = maxBook; i > 0; i--)
+			for (int i = books.Max(p => p.Value); i > 0; i--)
 			{
 				var count = books.Count(p => p.Value >= i);
-				var money = 100 * count;
-				total += money * _discountLookUp[count];
+				total += UnitPrice * count * _discountLookUp[count];
 			}
 			return total;
 		}
@@ -25,6 +25,5 @@ namespace HarryPotterCart
 		{
 			{ 1, 1 }, { 2, 0.95 }, { 3, 0.9 }, { 4, 0.8 }, { 5, 0.75 }
 		};
-
 	}
 }
