@@ -12,13 +12,20 @@ namespace HarryPotterCart
 
 		public double Checkout(Dictionary<string, int> books)
 		{
-			var total = 0d;
-			for (int i = books.Max(p => p.Value); i > 0; i--)
+			return CalculateFee(books, books.Max(p => p.Value));
+		}
+
+		private double CalculateFee(Dictionary<string, int> books, int index)
+		{
+			if (index > 0)
 			{
-				var count = books.Count(p => p.Value >= i);
-				total += UnitPrice * count * _discountLookUp[count];
+				var count = books.Count(p => p.Value >= index);
+				var total = UnitPrice * count * _discountLookUp[count];
+
+				return total + CalculateFee(books, index - 1);
 			}
-			return total;
+
+			return 0;
 		}
 
 		private Dictionary<int, double> _discountLookUp = new Dictionary<int, double>()
