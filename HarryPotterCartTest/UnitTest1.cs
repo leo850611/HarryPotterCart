@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using HarryPotterCart;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -37,9 +38,23 @@ namespace HarryPotterCartTest
 		[TestMethod]
 		public void BuyEP1234_320()
 		{
-			var books = new Dictionary<string, int>() { { "EP1", 1 }, { "EP2", 1 }, { "EP3", 1 }, { "EP4", 1 } };
+			var books = new Dictionary<string, int>()
+			{
+				{ "EP1", 1 }, { "EP2", 1 }, { "EP3", 1 }, { "EP4", 1 }
+			};
 			var checkout = _cart.Checkout(books);
 			Assert.AreEqual(320, checkout);
+		}
+
+		[TestMethod]
+		public void BuyEP12345_375()
+		{
+			var books = new Dictionary<string, int>()
+			{
+				{ "EP1", 1 }, { "EP2", 1 }, { "EP3", 1 }, { "EP4", 1 } , { "EP5", 1 }
+			};
+			var checkout = _cart.Checkout(books);
+			Assert.AreEqual(375, checkout);
 		}
 	}
 }
