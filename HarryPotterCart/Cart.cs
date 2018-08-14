@@ -10,7 +10,7 @@ namespace HarryPotterCart
 	{
 		private Dictionary<int, double> _discountLookUp = new Dictionary<int, double>()
 		{
-			{ 1, 1 }, { 2, 0.95 }, { 3, 0.9 }
+			{ 1, 1 }, { 2, 0.95 }, { 3, 0.9 },{ 4, 0.8 }
 		};
 
 		public double Checkout(Dictionary<string, int> books)
