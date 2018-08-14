@@ -64,5 +64,16 @@ namespace HarryPotterCartTest
 			var checkout = _cart.Checkout(books);
 			Assert.AreEqual(290, checkout);
 		}
+
+		[TestMethod]
+		public void BuyEP12345123_645()
+		{
+			var books = new Dictionary<string, int>()
+			{
+				{ "EP1", 2 }, { "EP2", 2 }, { "EP3", 2 }, { "EP4", 1 } , { "EP5", 1 }
+			};
+			var checkout = _cart.Checkout(books);
+			Assert.AreEqual(645, checkout);
+		}
 	}
 }
